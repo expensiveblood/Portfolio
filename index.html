@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>My Portfolio</title>
   <link rel="stylesheet" href="style.css">
@@ -9,14 +10,16 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-  <div class="rain"> </div>  <meta charset="UTF-8" />  <!-- Landing Section -->
+  <!-- Background / Effects -->
+  <div class="rain"></div>
+
+  <!-- Landing Section -->
   <header class="hero">
     <div class="overlay"></div>
     <div class="hero-content">
       <h1 class="glitch" data-text="CHIDU">CHIDU</h1>
-      <p class="tagline">Where technology meets creativity
-        Welcome to my portfolio</p>
-      <a href="#social" class="btn">Explore</a>
+      <p class="tagline">Where technology meets creativity<br>Welcome to my portfolio</p>
+      <a href="#about" class="btn">Explore</a>
     </div>
   </header>
 
@@ -24,11 +27,11 @@
   <section id="about" class="section about">
     <h2>About Me</h2>
     <p>
-    Hello! I’m a first-year Computer Science and Engineering student at NIE Engineering College, Mysore. 
-    I am passionate about technology, coding, and creating innovative solutions.  
-    I enjoy exploring web development, software engineering, and emerging technologies, 
-    constantly learning and experimenting to enhance my skills.  
-    My goal is to build impactful projects that combine creativity and functionality.
+      Hello! I’m a first-year Computer Science and Engineering student at NIE Engineering College, Mysore. 
+      I am passionate about technology, coding, and creating innovative solutions.  
+      I enjoy exploring web development, software engineering, and emerging technologies, 
+      constantly learning and experimenting to enhance my skills.  
+      My goal is to build impactful projects that combine creativity and functionality.
     </p>
   </section>
 
@@ -46,10 +49,10 @@
   <!-- Contact -->
   <section id="contact" class="section contact">
     <h2>Contact</h2>
-    <form>
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message"></textarea>
+    <form action="https://formspree.io/f/yourFormID" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit" class="btn">Send</button>
     </form>
   </section>
