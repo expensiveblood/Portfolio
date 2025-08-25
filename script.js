@@ -1,58 +1,57 @@
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
-  anchor.addEventListener("click", function(e){
-    e.preventDefault();
-    document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"});
-  });
-});
+/* General Reset */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:"Arial Black",sans-serif; background:#000; color:#fff; overflow-x:hidden; }
 
-// Parallax
-let lastScrollY=0, ticking=false;
-window.addEventListener("scroll", ()=>{
-  lastScrollY = window.scrollY;
-  if(!ticking){
-    window.requestAnimationFrame(()=>{
-      const hero = document.querySelector(".hero-content");
-      hero.style.transform = `translateY(${lastScrollY*0.4}px)`;
-      ticking=false;
-    });
-    ticking=true;
-  }
-});
-
-// Strong Thunderstorm Rain
-const rainContainer = document.querySelector(".rain");
-const flash = document.querySelector(".flash");
-
-function createRainDrops(){
-  rainContainer.innerHTML="";
-  const numberOfDrops = Math.floor(window.innerWidth*window.innerHeight/4000); // more dense rain
-
-  for(let i=0;i<numberOfDrops;i++){
-    const drop=document.createElement("div");
-    drop.classList.add("rain-drop");
-    drop.style.left=Math.random()*window.innerWidth+"px";
-    drop.style.height=15+Math.random()*25+"px";
-    drop.style.animationDuration=0.4+Math.random()*1.2+"s";
-    drop.style.animationDelay=Math.random()*2+"s";
-    drop.style.opacity=0.3+Math.random()*0.5;
-    rainContainer.appendChild(drop);
-  }
+/* Canvas should cover whole screen */
+#rain-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 1; /* behind content but above overlays */
 }
 
-// Subtle lightning flash
-function flashLightning(){
-  if(Math.random()<0.004){
-    flash.style.opacity=0.15+Math.random()*0.2;
-    setTimeout(()=>{ flash.style.opacity=0; },100+Math.random()*150);
-  }
-  requestAnimationFrame(flashLightning);
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: flex; justify-content:center; align-items:center; text-align:center;
 }
+.overlay {
+  position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.6); z-index:0;
+}
+.hero-content { position: relative; z-index:2; }
+.hero-content h1 { font-size:5rem; text-transform:uppercase; letter-spacing:4px; }
+.tagline { font-size:1.2rem; margin:20px 0; letter-spacing:2px; }
+.btn { display:inline-block; padding:10px 20px; border:2px solid #fff; text-decoration:none; color:#fff; transition:0.3s; }
+.btn:hover { background:#fff; color:#000; }
 
-// Run
-createRainDrops();
-window.addEventListener("resize",createRainDrops);
-flashLightning();
+/* Sections */
+.section { padding:80px 10%; text-align:center; }
+.section h2 { font-size:2.5rem; margin-bottom:20px; }
 
-// Page fade-in
-window.addEventListener("load", ()=>{ document.body.classList.add("loaded"); });
+/* Social Links */
+.social-links { display:flex; justify-content:center; gap:30px; margin-top:20px; }
+.social-links a { color:#fff; font-size:2rem; transition: color 0.3s, transform 0.3s; }
+.social-links a:hover { color:#ff0000; transform:scale(1.2); }
+
+/* Contact */
+form { display:flex; flex-direction:column; gap:15px; max-width:500px; margin:auto; }
+form input, form textarea { padding:12px; background:#111; border:1px solid #333; color:#fff; }
+form button { padding:12px; background:#000; border:none; color:#000; font-weight:bold; cursor:pointer; }
+form button:hover { background:#ff6600; color:#fff; }
+
+/* Footer */
+footer { padding:20px; text-align:center; background:#111; font-size:0.9rem; color:#777; }
+
+/* Glitch Effect */
+.glitch { position:relative; color:#fff; }
+.glitch::before, .glitch::after { content:attr(data-text); position:absolute; left:0; width:100%; overflow:hidden; clip:rect(0,0,0,0); }
+.glitch::before { animation:glitchTop 1s infinite linear alternate-reverse; color:#f0f; }
+.glitch::after { animation:glitchBottom 1s infinite linear alternate-reverse; color:#0ff; }
+@keyframes glitchTop { 0%{clip:rect(0,900px,0,0);} 20%{clip:rect(0,900px,80px,0); transform:translate(-5px,-5px);} 40%{clip:rect(0,900px,0,0);} }
+@keyframes glitchBottom { 0%{clip:rect(0,900px,0,0);} 20%{clip:rect(0,900px,80px,0); transform:translate(5px,5px);} 40%{clip:rect(0,900px,0,0);} }
+
+.about p { max-width:800px; margin:20px auto; line-height:1.8; font-size:1.1rem; color:#ccc; text-align:center; padding:0 20px; }
+@media (max-width:768px){ .about p{ font-size:1rem; } }
+@media (max-width:480px){ .about p{ font-size:0.95rem; } }
