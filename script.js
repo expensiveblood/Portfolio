@@ -1,54 +1,58 @@
-// Smooth scroll effect
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener("click", function (e) {
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+  anchor.addEventListener("click", function(e){
     e.preventDefault();
-    document.querySelector(this.getAttribute("href"))
-      .scrollIntoView({ behavior: "smooth" });
+    document.querySelector(this.getAttribute("href")).scrollIntoView({behavior:"smooth"});
   });
 });
 
-// Parallax effect (optimized with requestAnimationFrame)
-let lastScrollY = 0;
-let ticking = false;
-
-window.addEventListener("scroll", () => {
+// Parallax
+let lastScrollY=0, ticking=false;
+window.addEventListener("scroll", ()=>{
   lastScrollY = window.scrollY;
-  if (!ticking) {
-    window.requestAnimationFrame(() => {
+  if(!ticking){
+    window.requestAnimationFrame(()=>{
       const hero = document.querySelector(".hero-content");
-      hero.style.transform = `translateY(${lastScrollY * 0.4}px)`;
-      ticking = false;
+      hero.style.transform = `translateY(${lastScrollY*0.4}px)`;
+      ticking=false;
     });
-    ticking = true;
+    ticking=true;
   }
 });
 
-// Rain effect
+// Strong Thunderstorm Rain
 const rainContainer = document.querySelector(".rain");
+const flash = document.querySelector(".flash");
 
-function createRainDrops() {
-  rainContainer.innerHTML = ""; // clear old drops
-  const numberOfDrops = Math.floor(window.innerWidth / 10);
+function createRainDrops(){
+  rainContainer.innerHTML="";
+  const numberOfDrops = Math.floor(window.innerWidth*window.innerHeight/4000); // more dense rain
 
-  for (let i = 0; i < numberOfDrops; i++) {
-    const drop = document.createElement("div");
+  for(let i=0;i<numberOfDrops;i++){
+    const drop=document.createElement("div");
     drop.classList.add("rain-drop");
-
-    // Randomize raindrop properties
-    drop.style.left = Math.random() * window.innerWidth + "px";
-    drop.style.animationDuration = 0.5 + Math.random() * 1.5 + "s"; // varied fall speeds
-    drop.style.animationDelay = Math.random() * 2 + "s";
-    drop.style.opacity = Math.random(); // some faint drops
-
+    drop.style.left=Math.random()*window.innerWidth+"px";
+    drop.style.height=15+Math.random()*25+"px";
+    drop.style.animationDuration=0.4+Math.random()*1.2+"s";
+    drop.style.animationDelay=Math.random()*2+"s";
+    drop.style.opacity=0.3+Math.random()*0.5;
     rainContainer.appendChild(drop);
   }
 }
 
-// Run once on load + update on resize
-createRainDrops();
-window.addEventListener("resize", createRainDrops);
+// Subtle lightning flash
+function flashLightning(){
+  if(Math.random()<0.004){
+    flash.style.opacity=0.15+Math.random()*0.2;
+    setTimeout(()=>{ flash.style.opacity=0; },100+Math.random()*150);
+  }
+  requestAnimationFrame(flashLightning);
+}
 
-// Page fade-in effect
-window.addEventListener("load", () => {
-  document.body.classList.add("loaded");
-});
+// Run
+createRainDrops();
+window.addEventListener("resize",createRainDrops);
+flashLightning();
+
+// Page fade-in
+window.addEventListener("load", ()=>{ document.body.classList.add("loaded"); });
