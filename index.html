@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHIDU - Creative Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
+    <nav class="header-nav">
+        <a href="#" class="nav-logo">CHIDU</a>
+        <div class="hamburger-menu" id="hamburger" aria-label="Menu toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="nav-links-container" id="nav-links">
+            <a href="#socials">Socials</a>
+            <a href="#about">About</a>
+            <a href="#contact-section">Contact</a>
+        </div>
+    </nav>
+    
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="progressBar"></div>
+    </div>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title js-reveal-text">EXPENSIVE<br>BLOOD</h1>
+            <h2 class="hero-subtitle js-reveal-text">I do more with less.</h2>
+        </div>
+    </header>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="work-grid-section">
+        <div class="about-container">
+            <p class="about-text">I’m Chidanand J, a first-year Computer Science student at The National Institute of Engineering (NIE). Currently learning, experimenting, and creating projects that connect creativity with technology.</p>
+        </div>
+    </section>
+    <!-- ===== END ABOUT SECTION ===== -->
+
+    <!-- ===== SOCIALS SECTION ===== -->
+    <main id="socials" class="work-grid-section">
+        <div class="socials-container">
+            <a href="https://www.instagram.com/expensive.blood" target="_blank" class="social-link">Instagram</a>
+            <a href="https://snapchat.com/t/r3jmX60J" target="_blank" class="social-link">Snapchat</a>
+            <a href="https://" target="_blank" class="social-link">LinkedIn</a>
+        </div>
+    </main>
+    <!-- ===== END SOCIALS SECTION ===== -->
+    
+    <section id="contact-section" class="contact-section">
+        <h2>Let's connect.</h2>
+    
+
+        <!-- Formspree form -->
+        <form action="https://formspree.io/f/xnngyrbl" method="POST" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send</button>
+        </form>
+    </section>
+
+    <!-- ===== COPYRIGHT SECTION ===== -->
+    <footer class="footer-section">
+        <p>&copy; 2025 Chidanand J. All Rights Reserved.</p>
+    </footer>
+
+    <script src="script.js"></script> 
+</body>
+</html>
