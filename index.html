@@ -1,67 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Font Awesome for Social Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YOUR NAME - Creative Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Canvas for Rain and Lightning -->
-  <canvas id="rain-canvas"></canvas>
 
-  <!-- Landing Section -->
-  <header class="hero">
-    <div class="overlay"></div>
-    <div class="hero-content">
-      <h1 class="glitch" data-text="CHIDU">CHIDU</h1>
-      <p class="tagline">Where technology meets creativity<br>Welcome to my portfolio</p>
-      <a href="#about" class="btn">Explore</a>
+    <nav class="header-nav">
+        <a href="#" class="nav-logo">YOUR NAME</a>
+        <div class="hamburger-menu" id="hamburger" aria-label="Menu toggle">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <div class="nav-links-container" id="nav-links">
+            <a href="#socials">Socials</a>
+            <a href="#about">About</a>
+            <a href="#contact-section">Contact</a>
+        </div>
+    </nav>
+    
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="progressBar"></div>
     </div>
-  </header>
 
-  <!-- About -->
-  <section id="about" class="section about">
-    <h2>About Me</h2>
-    <p>
-      Hello! I’m a first-year Computer Science and Engineering student at NIE Engineering College, Mysore. 
-      I am passionate about technology, coding, and creating innovative solutions.  
-      I enjoy exploring web development, software engineering, and emerging technologies, 
-      constantly learning and experimenting to enhance my skills.  
-      My goal is to build impactful projects that combine creativity and functionality.
-    </p>
-  </section>
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title js-reveal-text">YOUR NAME<br>CREATIVE</h1>
+            <h2 class="hero-subtitle js-reveal-text">Visual Portfolio. Frontend Developer.</h2>
+        </div>
+    </header>
 
-  <!-- Social Links -->
-  <section id="social" class="section social">
-    <h2>Connect With Me</h2>
-    <div class="social-links"> 
-      <a href="https://www.instagram.com/expensive.blood?igsh=MWYwdW1hcDk0M3N1bA==" target="_blank"><i class="fab fa-instagram"></i></a>
-      <a href="https://t.snapchat.com/aBsYosMU" target="_blank"><i class="fab fa-snapchat"></i></a>
-      <a href="https://open.spotify.com/playlist/0YmqF7AibbggBTssBXr1Q6?si=ZSRA_UpVTGOVXQnWnzqrvA&pi=hKv7iwJWQ1Wl7" target="_blank"><i class="fab fa-spotify"></i></a>
-      <a href="mailto:expensiveblood2007@email.com"><i class="fas fa-envelope"></i></a>
-    </div>
-  </section>
+    <!-- ===== SOCIALS SECTION (Edited only this part) ===== -->
+    <main id="socials" class="work-grid-section">
+        <div class="socials-container">
+            <a href="https://www.instagram.com/expensive.blood" target="_blank" class="social-link">Instagram</a>
+            <a href="https://snapchat.com/t/r3jmX60J" target="_blank" class="social-link">Snapchat</a>
+            <a href="https://www.linkedin.com/" target="_blank" class="social-link">LinkedIn</a>
+        </div>
+    </main>
+    <!-- ===== END SOCIALS SECTION ===== -->
+    
+    <section id="contact-section" class="contact-section">
+        <h2>Got a project idea? Let's connect.</h2>
+        <a href="mailto:your@email.com" class="contact-email-link">YOUR@EMAIL.COM</a>
+    </section>
 
-  <!-- Contact -->
-  <section id="contact" class="section contact">
-    <h2>Contact</h2>
-    <form action="https://formspree.io/f/mblajjrg" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" placeholder="Your Message" required></textarea>
-      <button type="submit" class="btn">Send</button>
-    </form>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 CHIDANAND J</p>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script> 
 </body>
 </html>
